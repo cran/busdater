@@ -1,0 +1,15 @@
+771bf4020f7ac8fc44f3aa0e369d305c *DESCRIPTION
+29a5a55183d30af8f085154723144a00 *LICENSE
+1bb167046c37270cbf50ca2f0cbff7c6 *NAMESPACE
+a952ca3015fa0f368840dfa85d46712e *R/period_dates.R
+700513632ae10adf76e82eed050fc5c9 *README.md
+dbeb7867b6bc0d70e3067336025ccd6c *build/vignette.rds
+00ee6e7a131674e21ffb483063865be4 *inst/doc/busdates-introduction-vignette.R
+8b39098b4092193d1c493a9c37c8cf40 *inst/doc/busdates-introduction-vignette.Rmd
+d5e07b09594ae99ebaac9b4bcf7e2cf2 *inst/doc/busdates-introduction-vignette.html
+0c99bb6406274c15925338ff4ae35900 *man/FY.Rd
+62c76ffe6794d65e1bbaa205e47759c7 *man/busdater-package.Rd
+c682730a414dd771a618976e27afed29 *man/period_boundaries.Rd
+ed5415ba3857c60ec578ad0b8b0e15d9 *tests/testthat.R
+3b2aaedde6c2174abf1e12632a13c046 *tests/testthat/test_period_dates.R
+8b39098b4092193d1c493a9c37c8cf40 *vignettes/busdates-introduction-vignette.Rmd

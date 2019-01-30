@@ -208,111 +208,113 @@ hr {
 to get financial year, calendar year and month calculations.
 It returns start and end of the business periods.</p>
 
-<p>Jurisditions and organisations observe different start and end of financial year.
-<code>optFYstart</code> parameter is string in the format of &ldquo;MM-DD&rdquo; representing the start
+<p>Jurisdictions and organisations observe different start and end of financial year.
+parameter is string in the format of &ldquo;MM-DD&rdquo; representing the start
 of financial year, e.g. &ldquo;01-01&rdquo; for 1st of January or &ldquo;07-01&rdquo; for 1st of July. The default is taken from options and is &ldquo;07-01&rdquo; if not present.</p>
 
 <p>This package caters for financial years that have a fixed start date.
 It does not cater for moving dates e.g. last Friday of September.</p>
 
-<p>The package has 2 functions:</p>
+<p>The package has 4 functions (2 deprecated):</p>
 
 <ul>
-<li><code>FY</code> to return the financial (fiscal) year as integers</li>
-<li><code>period_boundaries</code> to return start and end of a month and start and end of financial years</li>
+<li><code>get_fy</code> to return the financial (fiscal) year as integers</li>
+<li><code>get_boundary</code> to return start and end of a month and start and end of financial years</li>
+<li><code>FY</code> deprecated and same as <code>get_fy</code></li>
+<li><code>period_boundaries</code> deprecated and same as <code>get_boundary</code></li>
 </ul>
 
 <p>Enjoy!</p>
 
 <h2>Examples and explanations</h2>
 
-<h2><code>FY</code> function</h2>
+<h2><code>get_fy</code> function</h2>
 
 <p>Given the current date:</p>
 
 <pre><code class="r">Sys.Date()
-#&gt; [1] &quot;2019-01-11&quot;
+#&gt; [1] &quot;2019-01-31&quot;
 getOption(&quot;busdaterFYstart&quot;, default = &quot;07-01&quot;)
 #&gt; [1] &quot;07-01&quot;
 </code></pre>
 
 <p>Return the current financial year as integer</p>
 
-<pre><code class="r">FY()
+<pre><code class="r">get_fy()
 #&gt; [1] 2019
 </code></pre>
 
 <p>Return financial year for given dates</p>
 
 <pre><code class="r">dt &lt;- as.Date(c(&quot;01-01-2018&quot;, &quot;15-12-2017&quot;), &quot;%d-%m-%Y&quot;)
-FY(date = dt[1])
+get_fy(date = dt[1])
 #&gt; [1] 2018
-FY(date = dt)
+get_fy(date = dt)
 #&gt; [1] 2018 2018
 </code></pre>
 
 <p>Return the next financial year as integer</p>
 
-<pre><code class="r">FY(offset_period = 1) # current financial year + 1
+<pre><code class="r">get_fy(offset_period = 1) # current financial year + 1
 #&gt; [1] 2020
-FY(date = dt[1], offset_period = 1)
+get_fy(date = dt[1], offset_period = 1)
 #&gt; [1] 2019
-FY(date = dt, offset_period = 1)
+get_fy(date = dt, offset_period = 1)
 #&gt; [1] 2019 2019
 </code></pre>
 
 <p>Return the previous financial year as integer</p>
 
-<pre><code class="r">FY(offset_period=-1) ## return the previous financial year as integer
+<pre><code class="r">get_fy(offset_period=-1) ## return the previous financial year as integer
 #&gt; [1] 2018
-FY(date = dt[1], offset_period = -1)
+get_fy(date = dt[1], offset_period = -1)
 #&gt; [1] 2017
-FY(date = dt, offset_period = -1)
+get_fy(date = dt, offset_period = -1)
 #&gt; [1] 2017 2017
 </code></pre>
 
-<h2><code>period_boundaries</code> function</h2>
+<h2><code>get_boundary</code> function</h2>
 
 <p>Given the current date:</p>
 
 <pre><code class="r">Sys.Date()
-#&gt; [1] &quot;2019-01-11&quot;
+#&gt; [1] &quot;2019-01-31&quot;
 getOption(&quot;busdaterFYstart&quot;, default = &quot;07-01&quot;)
 #&gt; [1] &quot;07-01&quot;
 </code></pre>
 
 <p>What is the 1st day of the current financial year</p>
 
-<pre><code class="r">period_boundaries()
+<pre><code class="r">get_boundary()
 #&gt; [1] &quot;2018-07-01&quot;
-period_boundaries(optFYstart = &quot;07-01&quot;)
+get_boundary(opt_fy_start = &quot;07-01&quot;)
 #&gt; [1] &quot;2018-07-01&quot;
-period_boundaries(optFYstart = &quot;01-03&quot;)
+get_boundary(opt_fy_start = &quot;01-03&quot;)
 #&gt; [1] &quot;2019-01-03&quot;
 </code></pre>
 
 <p>The last day of the current financial year</p>
 
-<pre><code class="r">period_boundaries(boundary = &quot;last day&quot;)
+<pre><code class="r">get_boundary(boundary = &quot;last day&quot;)
 #&gt; [1] &quot;2019-06-30&quot;
 </code></pre>
 
 <p>The last day of the last calendar year</p>
 
-<pre><code class="r">period_boundaries(offset_period = -1, bus_period = &quot;CY&quot;, boundary = &quot;last day&quot;)
+<pre><code class="r">get_boundary(offset_period = -1, bus_period = &quot;CY&quot;, boundary = &quot;last day&quot;)
 #&gt; [1] &quot;2018-12-31&quot;
 </code></pre>
 
 <p>The last day of month 14 months from now</p>
 
-<pre><code class="r">period_boundaries(offset_period = 14, offset_type = &quot;month&quot;,
+<pre><code class="r">get_boundary(offset_period = 14, offset_type = &quot;month&quot;,
                   bus_period = &quot;M&quot;, boundary = &quot;last day&quot;)
 #&gt; [1] &quot;2020-03-31&quot;
 </code></pre>
 
-<p>The first day of finacial years for dates 3 months before the given dates</p>
+<p>The first day of financial years for dates 3 months before the given dates</p>
 
-<pre><code class="r">period_boundaries(as.Date(c(&quot;02/27/1992&quot;, &quot;09/28/2022&quot;), &quot;%m/%d/%Y&quot;),
+<pre><code class="r">get_boundary(as.Date(c(&quot;02/27/1992&quot;, &quot;09/28/2022&quot;), &quot;%m/%d/%Y&quot;),
                   offset_period = -3, offset_type = &quot;month&quot;,
                   bus_period = &quot;FY&quot;, boundary = &quot;1st day&quot;)
 #&gt; [1] &quot;1991-07-01&quot; &quot;2021-07-01&quot;

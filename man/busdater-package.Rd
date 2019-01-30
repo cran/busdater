@@ -6,8 +6,8 @@
 \alias{busdater-package}
 \title{busdater: Standard Date Calculations for Business}
 \description{
-Get a current financial year, start of current month, 
-    End of current month, start of financial year and end of it.
+Get a current financial year, start of current
+    month, End of current month, start of financial year and end of it.
     Allow for offset from the date.
 }
 \details{
@@ -17,9 +17,20 @@ to get financial year, calendar year and month calculations.
 It returns start and end of the business periods.
 
 \describe{
-  \item{\code{\link{FY}}}{Get financial year, possibly with an offset priod}
-  \item{\code{\link{period_boundaries}}}{Get date's business period boundary.}
+  \item{\code{\link{get_fy}}}{Get financial year, possibly with an offset period}
+  \item{\code{\link{FY}}}{Deprecated in favour of get_fy()}
+  \item{\code{\link{get_boundary}}}{Get date's business period boundary.}
+  \item{\code{\link{period_boundaries}}}{Deprecated in favour of get_boundary()}
 }
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://mickmioduszewski.github.io/busdater/}
+  \item \url{https://github.com/mickmioduszewski/busdater/}
+  \item Report bugs at \url{https://github.com/mickmioduszewski/busdater/issues}
+}
+
 }
 \author{
 \strong{Maintainer}: Mick Mioduszewski \email{mick@mioduszewski.net}

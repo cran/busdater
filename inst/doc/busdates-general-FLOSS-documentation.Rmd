@@ -1,0 +1,36 @@
+---
+title: "About this software"
+author: "Mick Mioduszewski"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{About this software}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+library(busdater)
+```
+# FLOSS
+
+This software is FLOSS, attempts to conform with Core 
+Infrastructure Integration, is hosted at https://mickmioduszewski.github.io/busdater/index.html and is licensed as MIT.
+
+Collaboration and contibution is welcome.
+
+
+# Standards
+
+* The software will follow CRAN standards, policy and good practice manuals.
+* Style will be checked with hhttps://CRAN.R-project.org/package=lintr, which in turn follows [Hadley Wickham's R Style Guide](http://r-pkgs.had.co.nz/style.html).
+* Installation follow usual package install practices e.g. install.packages("busdater")
+* All documentation will be in plain English but will not filter out technical terms
+* All functionality needs to have test coverage 
+* Developers will use Developer Certificate of Origin
+* Repository owner has decision making rights on incorporating the changes
+
